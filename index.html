@@ -1,725 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amazon Clone</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-<style>
-
-/* RESET */
-*{
-    margin:0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
     font-family: Arial, sans-serif;
-    box-sizing: border-box;
-}
-html, body{
-    margin:0;
-    padding:0;
-    width:100%;
-    overflow-x:hidden;
-}
-
-/* NAVBAR */
-.navbar{
-    height: 60px;
-    background-color: #131921;
-    color:white;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.nav-logo{
-    height: 50px;
-    width: 110px;
-}
-.logo{
-    background-image:url("https://pngimg.com/uploads/amazon/amazon_PNG11.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 50px;
-    width: 100%;
-    position: relative;
-    top: 10px;
-}
-.border{
-    border: 1px solid transparent;
-    padding: 5px;
-}
-.border:hover{
-    border: 1px solid white;
-}
-
-/* ADDRESS */
-.text-first{
-    color: #cccccc;
-    font-size: 12px;
-}
-.text-second{
-    font-size: 14px;
-    font-weight: bold;
-}
-.add-icon{
-    display:flex;
-    align-items:center;
-    gap:5px;
-}
-
-/* SEARCH */
-.nav-search{
-    display: flex;
-    width: 600px;
-    height: 40px;
-}
-.search-select{
-    width: 50px;
-    border: none;
-    background-color: #f3f3f3;
-    border-top-left-radius:4px;
-    border-bottom-left-radius:4px;
-}
-.search-input{
-    width:100%;
-    border:none;
-    padding-left:10px;
-    font-size:14px;
-}
-.search-icon{
-    width:45px;
-    background-color:#febd69;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-top-right-radius:4px;
-    border-bottom-right-radius:4px;
-    cursor:pointer;
-}
-.nav-search:hover{
-    border:2px solid orange;
-}
-
-/* LANGUAGE */
-.nav-lang{
-    display:flex;
-    align-items:center;
-    gap:5px;
-    font-size:14px;
-}
-
-/* RIGHT NAV */
-.nav-second{
-    font-size: 0.85rem;
-    font-weight:700;
-}
-span{
-  font-size: 0.7rem;
-}
-.nav-cart i{
-    font-size:25px;
-}
-.nav-cart{
-    font-size:14px;
-}
-
-/* PANEL */
-.panel{
-    height:40px;
-    background-color:#232f3e;
-    display:flex;
-    align-items:center;
-    color:white;
-    padding-left: 20px;
-}
-.panel-ops p{
-    display:inline;
-    margin-left:15px;
-    font-size:14px;
-}
-.panel-deals{
-    font-weight:700;
-    margin-left: auto;
-    margin-right: 20px;
-}
-
-/* HERO SLIDER */
-.hero-section{
-    position: relative;
-    height: 420px;
-    overflow: hidden;
-}
-.slide{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: fade 15s infinite;
-}
-.slide1{
-    background-image:url("h1.jpg");
-    animation-delay:0s;
-}
-.slide2{
-    background-image:url("qw.jpg");
-    animation-delay:5s;
-}
-.slide3{
-    background-image:url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200");
-    animation-delay:10s;
-}
-@keyframes fade{
-    0%{opacity:0;}
-    5%{opacity:1;}
-    30%{opacity:1;}
-    35%{opacity:0;}
-    100%{opacity:0;}
-}
-
-/* MINI CARDS */
-.mini-cards{
-    display:flex;
-    justify-content:space-evenly;
-    background:#e3e6e6;
-    padding:20px 0;
-}
-.mini-card{
-    background:white;
-    width:22%;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    border-radius:4px;
-}
-.mini-card h3{
-    color:#B12704;
-}
-
-/* SHOP SECTION */
-.shop-section{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-evenly;
-    background-color:#e3e6e6;
-    padding-bottom:30px;
-}
-.box{
-    height:370px;
-    width:23%;
-    background-color:white;
-    margin-top:20px;
-    padding:20px;
-}
-.box-img{
-    height:250px;
-    background-size:cover;
-    background-position:center;
-    margin:15px 0;
-}
-.box-content p{
-    color:#007185;
-    font-size:14px;
-    cursor:pointer;
-}
-
-/* PRODUCT SLIDER */
-.product-slider{
-    background:white;
-    padding:20px;
-    margin: 0px;
-}
-.product-slider h2{
-    position: relative;
-    bottom: 12px;
-}
-
-.slider-row{
-    display:flex;
-    overflow-x:auto;
-    gap:15px;
-}
-.slider-row img{
-    height:200px;
-    border-radius:4px;
-}
-.slider-row img:hover{
-    transform: scale(1.05);
-    transition: 0.3s;
-}
-.slider-row{
-    scroll-behavior: smooth;
-}
-
-/* SIGNIN SECTION */
-.signin-section{
-    background:white;
-    text-align:center;
-    padding:40px;
-}
-.signin-section p{
-    position: relative;
-    top: 10px;
-    font-size: 0.7rem;
-}
-.signin-section a{
-    text-decoration: underline;
-    cursor: pointer;
-}
-.signin-section a:hover{
-    color: blue;
-
-}
-
-
-.signin-section button{
-    background:#ffd814;
-    border:none;
-    padding:10px 60px;
-    border-radius:20px;
-    font-weight:bold;
-}
-.signin-section button:hover{
-    background-color: #febd69;
-}
-footer{
-    width:100%;   
-
-}
-
-.footer-top{
-    background:#37475a;
-    text-align:center;
-    padding:15px;
-}
-.footer-top:hover{
-    background-color: #131a22;
-}
-.footer-top a{
-    color:white;
-    text-decoration:none;
-}
-
-.footer-main{
-    background:#232f3e;
-    color:white;
-    display:flex;
-    justify-content:space-around;
-    padding:40px 20px;
-    flex-wrap:wrap;
-}
-.footer-column{
+    background:#ffffff;
     display:flex;
     flex-direction:column;
+    align-items:center;
 }
-.footer-column h4{
-    margin-bottom:10px;
+.logo{
+    margin-top:30px;
+    margin-bottom:20px;
 }
-.footer-column a{
-    color:#dddddd;
-    text-decoration:none;
-    margin-bottom:8px;
+.logo img{
+    width:120px;
+}
+
+/* Signin Box */
+.signin-box{
+    width:350px;
+    border:1px solid #ddd;
+    padding:20px 26px;
+    border-radius:8px;
+}
+
+.signin-box h2{
+    font-weight:500;
+    margin-bottom:15px;
+}
+
+label{
     font-size:14px;
+    font-weight:bold;
 }
-.footer-column a:hover{
+
+input{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #a6a6a6;
+    border-radius:4px;
+}
+
+input:focus{
+    outline:none;
+    border:1px solid #007185;
+    box-shadow:0 0 3px #007185;
+}
+
+.continue-btn{
+    width:100%;
+    background:#ffd814;
+    border:none;
+    padding:10px;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.continue-btn:hover{
+    background:#f7ca00;
+}
+
+.text{
+    font-size:12px;
+    margin-top:15px;
+}
+
+.text a{
+    color:#0066c0;
+    text-decoration:none;
+}
+
+.text a:hover{
     text-decoration:underline;
 }
 
-.footer-bottom-dark{
-    background:#131a22;
-    color:white;
-    padding:40px 20px;
+.divider{
+    margin:25px 0 10px;
+    font-size:13px;
+}
+
+.create-btn{
+    width:350px;
+    background:#e7e9ec;
+    border:1px solid #adb1b8;
+    padding:10px;
+    border-radius:20px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.create-btn:hover{
+    background:#d5d9d9;
+}
+
+/* Footer */
+.footer{
+    margin-top:40px;
+    font-size:12px;
+    color:#555;
     text-align:center;
 }
 
-.footer-logo{
-    margin-bottom:20px;
-}
-
-.footer-services{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:40px;
-    font-size:12px;
-    margin-bottom:30px;
-}
-
-.footer-services div{
-    max-width:150px;
-}
-
-.footer-copy a{
-    color:#dddddd;
-    text-decoration:none;
+.footer a{
     margin:0 10px;
-    font-size:12px;
+    color:#0066c0;
+    text-decoration:none;
 }
-.footer-copy a:hover{
+
+.footer a:hover{
     text-decoration:underline;
-}
-/* ============================= */
-/* MOBILE RESPONSIVE DESIGN */
-/* ============================= */
-
-@media (max-width: 992px){
-
-    /* NAVBAR */
-    .navbar{
-        flex-wrap: wrap;
-        height: auto;
-        padding: 10px;
-        gap:10px;
-    }
-
-    .nav-search{
-        width:100%;
-        order:3;
-    }
-
-    /* PANEL */
-    .panel{
-        flex-wrap: wrap;
-        height:auto;
-        padding:10px;
-        gap:10px;
-    }
-
-    .panel-ops{
-        display:none; /* hide extra links on mobile */
-    }
-
-    .panel-deals{
-        margin:0;
-    }
-
-    /* HERO */
-    .hero-section{
-        height:250px;
-    }
-
-    /* MINI CARDS */
-    .mini-cards{
-        flex-wrap:wrap;
-        gap:15px;
-        padding:15px;
-    }
-
-    .mini-card{
-        width:45%;
-    }
-
-    /* SHOP SECTION */
-    .box{
-        width:45%;
-    }
-
-    /* PRODUCT SLIDER */
-    .slider-row img{
-        height:150px;
-    }
-
-    /* FOOTER */
-    .footer-main{
-        flex-direction:row;
-        align-items:center;
-        text-align:center;
-        gap:20px;
-    }
-
-    .footer-services{
-        gap:20px;
-    }
-}
-
-
-/* Extra Small Devices (Mobile) */
-@media (max-width: 576px){
-
-    .mini-card{
-        width:100%;
-    }
-
-    .box{
-        width:100%;
-    }
-
-    .nav-lang,
-    .nav-address{
-        display:none; /* hide extra items */
-    }
-
-    .nav-second{
-        font-size:12px;
-    }
-
-    .hero-section{
-        height:200px;
-    }
-
 }
 </style>
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="nav-logo border"><div class="logo"></div></div>
-
-    <div class="nav-address border">
-        <p class="text-first">Deliver to</p>
-        <div class="add-icon">
-            <i class="fa-solid fa-location-dot"></i>
-            <p class="text-second">Pakistan</p>
-        </div>
-    </div>
-
-    <div class="nav-search">
-        <select class="search-select"><option>All</option></select>
-        <input placeholder="Search Amazon" class="search-input">
-        <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-    </div>
-
-    <div class="border nav-lang">
-        <img src="https://flagcdn.com/w20/us.png" width="20"> EN
-    </div>
-
-    <div class="border">
-        <p><span>Hello, Sign in</span></p>
-        <p class="nav-second">Account & Lists</p>
-    </div>
-
-    <div class="border">
-        <p><span>Returns</span></p>
-        <p class="nav-second">& Orders</p>
-    </div>
-
-    <div class="nav-cart border">
-        <i class="fa-solid fa-cart-shopping"></i> Cart
-    </div>
+    
+<div class="logo">
+    <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png">
 </div>
 
-<!-- PANEL -->
-<div class="panel">
-    <div><i class="fa-solid fa-bars"></i> All</div>
-    <div class="panel-ops">
-        <p>Today's Deals</p>
-        <p>Customer Service</p>
-        <p>Registry</p>
-        <p>Gift Cards</p>
-        <p>Sell</p>
-    </div>
-    <div class="panel-deals">Shop deals in Electronics</div>
-</div>
+<!-- Sign In Box -->
+<div class="signin-box">
+    <h2>Sign in or create account</h2>
 
-<!-- HERO -->
-<div class="hero-section">
-    <div class="slide slide1"></div>
-    <div class="slide slide2"></div>
-    <div class="slide slide3"></div>
-</div>
+    <form>
+        <label>Enter mobile number or email</label>
+        <input type="text" required>
 
-<!-- MINI CARDS -->
-<div class="mini-cards">
-    <div class="mini-card"><h3>Up to 50% Off</h3><p>Electronics Sale</p></div>
-    <div class="mini-card"><h3>New Arrivals</h3><p>Fashion Collection</p></div>
-    <div class="mini-card"><h3>Best Sellers</h3><p>Home Essentials</p></div>
-    <div class="mini-card"><h3>Limited Offer</h3><p>Gaming Accessories</p></div>
-</div>
+        <button class="continue-btn">Continue</button>
+    </form>
 
-<!-- SHOP SECTION -->
-<div class="shop-section">
-
-<div class="box">
-    <div class="box-content">
-        <h2>Gaming Accessories</h2>
-        <div class="box-img" style="background-image:url('https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600');"></div>
-        <p>Shop now</p>
-    </div>
-</div>
-
-<div class="box">
-    <div class="box-content">
-        <h2>Electronics</h2>
-        <div class="box-img" style="background-image:url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=600');"></div>
-        <p>Shop now</p>
-    </div>
-</div>
-
-<div class="box">
-    <div class="box-content">
-        <h2>Home Essentials</h2>
-        <div class="box-img" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600');"></div>
-        <p>Shop now</p>
-    </div>
-</div>
-
-<div class="box">
-    <div class="box-content">
-        <h2>Fashion</h2>
-        <div class="box-img" style="background-image:url('https://images.unsplash.com/photo-1521334884684-d80222895322?w=600');"></div>
-        <p>Shop now</p>
-    </div>
-</div>
-
-<div class="box">
-    <div class="box-content">
-        <h2>Mobiles</h2>
-        <div class="box-img" style="background-image:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600');"></div>
-        <p>Shop now</p>
-    </div>
-</div>
-
-<div class="box">
-    <div class="box-content">
-        <h2>Watches</h2>
-        <div class="box-img" style="background-image:url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600');"></div>
-        <p>Shop now</p>
-    </div>
-</div>
-
-<div class="box">
-    <div class="box-content">
-        <h2>Kitchen Items</h2>
-        <div class="box-img" style="background-image:url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600');"></div>
-        <p>Shop now</p>
-    </div>
-</div>
-
-<div class="box">
-    <div class="box-content">
-        <h2>Sports</h2>
-        <div class="box-img" style="background-image:url('https://images.unsplash.com/photo-1508606572321-901ea443707f?w=600');"></div>
-        <p>Shop now</p>
-    </div>
-</div>
-
-</div>
-
-<!-- PRODUCT SLIDER -->
-<div class="product-slider">
-    <h2>Best Sellers in Electronics</h2>
-    <div class="slider-row">
-    <img src="e1.jpg" alt="Headphones">
-    <img src="e10.jpg" alt="Smart Watch">
-    <img src="e2.jpg" alt="Laptop">
-    <img src="e3.jpg" alt="Camera">
-    <img src="e4 (2).jpg" alt="Mobile Phone">
-    <img src="e7.jpg" alt="Tablet">
-    <img src="e6.jpg" alt="Monitor">
-    <img src="e8.jpg" alt="Keyboard">
-    <img src="e9.jpg" alt="Mouse">
-    <img src="ele.jpg" alt="Gaming Console">
-    <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=300&q=60" alt="Gaming Setup">
-    <img src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=300&q=60" alt="Bluetooth Speaker">
-    </div>
-</div>
-
-<!-- SIGN IN -->
-<div class="signin-section">
-    <h2>See personalized recommendations</h2>
-    <button><a href="signin.html" class="signin-btn">Sign in</a></button>
-    <p>New customer?<a> Start here.</a></p>
-</div>
-<footer>
-
-<!-- Back to top -->
-<div class="footer-top">
-    <a href="#">Back to top</a>
-</div>
-
-<!-- Main Footer Links -->
-<div class="footer-main">
-    <div class="footer-column">
-        <h4>Get to Know Us</h4>
-        <a href="#">Careers</a>
-        <a href="#">Blog</a>
-        <a href="#">About Amazon</a>
-        <a href="#">Investor Relations</a>
-        <a href="#">Amazon Devices</a>
-        <a href="#">Amazon Science</a>
-    </div>
-
-    <div class="footer-column">
-        <h4>Make Money with Us</h4>
-        <a href="#">Sell products on Amazon</a>
-        <a href="#">Sell on Amazon Business</a>
-        <a href="#">Sell apps on Amazon</a>
-        <a href="#">Become an Affiliate</a>
-        <a href="#">Advertise Your Products</a>
-        <a href="#">Self-Publish with Us</a>
-    </div>
-
-    <div class="footer-column">
-        <h4>Amazon Payment Products</h4>
-        <a href="#">Amazon Business Card</a>
-        <a href="#">Shop with Points</a>
-        <a href="#">Reload Your Balance</a>
-        <a href="#">Amazon Currency Converter</a>
-    </div>
-
-    <div class="footer-column">
-        <h4>Let Us Help You</h4>
-        <a href="#">Amazon and COVID-19</a>
-        <a href="#">Your Account</a>
-        <a href="#">Your Orders</a>
-        <a href="#">Shipping Rates & Policies</a>
-        <a href="#">Returns & Replacements</a>
-        <a href="#">Help</a>
-    </div>
-</div>
-
-<!-- Bottom Dark Section -->
-<div class="footer-bottom-dark">
-
-    <div class="footer-logo">
-        <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" width="100">
-    </div>
-
-    <div class="footer-services">
-        <div>
-            <strong>Amazon Music</strong><br>
-            Stream millions of songs
-        </div>
-
-        <div>
-            <strong>Amazon Ads</strong><br>
-            Reach customers wherever they spend their time
-        </div>
-
-        <div>
-            <strong>Amazon Business</strong><br>
-            Everything for your business
-        </div>
-
-        <div>
-            <strong>IMDb</strong><br>
-            Movies, TV & Celebrities
-        </div>
-
-        <div>
-            <strong>Prime Video</strong><br>
-            Unlimited Streaming of Movies & TV
-        </div>
-
-        <div>
-            <strong>Amazon Drive</strong><br>
-            Cloud storage from Amazon
-        </div>
-    </div>
-
-    <div class="footer-copy">
+    <div class="text">
+        By continuing, you agree to Amazon's
         <a href="#">Conditions of Use</a>
-        <a href="#">Privacy Notice</a>
-        <a href="#">Interest-Based Ads</a>
-        <br><br>
-        © 1996-2026, Amazon.com, Inc. or its affiliates
+        and
+        <a href="#">Privacy Notice</a>.
     </div>
 
+    <div class="divider">
+        Buying for work?<br>
+        <a href="#">Create a free business account</a>
+    </div>
 </div>
 
-</footer>
+<button class="create-btn">Create your Amazon account</button>
 
+<!-- Footer -->
+<div class="footer">
+    <a href="#">Conditions of Use</a>
+    <a href="#">Privacy Notice</a>
+    <a href="#">Help</a>
+    <br><br>
+    © 1996-2026, Amazon Clone
+</div>
+    
 </body>
 </html>
